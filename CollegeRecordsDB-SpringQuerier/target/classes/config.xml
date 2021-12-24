@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="beans.Querier">
+        <constructor-arg value=
+            "select vali_schema.student.student_id, vali_schema.student.nume, vali_schema.student.grupa, vali_schema.examen.materie, vali_schema.examen.data
+            from vali_schema.student
+            inner join vali_schema.examen on vali_schema.student.grupa = vali_schema.examen.grupa
+            inner join vali_schema.nota_examen on vali_schema.examen.examen_id = vali_schema.nota_examen.examen_id
+            where vali_schema.nota_examen.nota &lt; 5;"/>
+    </bean>
+</beans>
