@@ -13,21 +13,21 @@
     <bean id="student2" class="beans.Student">
         <constructor-arg value="2"/>
         <constructor-arg value="Daniel"/>
-        <constructor-arg value="2"/>
+        <constructor-arg value="1"/>
         <constructor-arg value="4"/>
     </bean>
 
     <bean id="student3" class="beans.Student">
         <constructor-arg value="3"/>
         <constructor-arg value="Ion"/>
-        <constructor-arg value="3"/>
+        <constructor-arg value="1"/>
         <constructor-arg value="3"/>
     </bean>
 
     <bean id="student4" class="beans.Student">
         <constructor-arg value="4"/>
         <constructor-arg value="Marius"/>
-        <constructor-arg value="4"/>
+        <constructor-arg value="1"/>
         <constructor-arg value="4"/>
     </bean>
 
@@ -42,7 +42,7 @@
 
     <bean id="examen2" class="beans.Examen">
         <constructor-arg value="2"/>
-        <constructor-arg value="2"/>
+        <constructor-arg value="1"/>
         <constructor-arg value="Programarea Orientata pe Obiecte"/>
         <constructor-arg value="Ionita Dan"/>
         <constructor-arg value="2022-02-01"/>
@@ -51,7 +51,7 @@
 
     <bean id="examen3" class="beans.Examen">
         <constructor-arg value="3"/>
-        <constructor-arg value="3"/>
+        <constructor-arg value="2"/>
         <constructor-arg value="Programarea Orientata pe Obiecte"/>
         <constructor-arg value="Ionita Dan"/>
         <constructor-arg value="2022-02-01"/>
@@ -60,7 +60,7 @@
 
     <bean id="examen4" class="beans.Examen">
         <constructor-arg value="4"/>
-        <constructor-arg value="4"/>
+        <constructor-arg value="2"/>
         <constructor-arg value="Programarea Orientata pe Obiecte"/>
         <constructor-arg value="Ionita Dan"/>
         <constructor-arg value="2022-02-01"/>
@@ -78,8 +78,8 @@
 
     <bean id="examen6" class="beans.Examen">
         <constructor-arg value="6"/>
-        <constructor-arg value="2"/>
-        <constructor-arg value="Programarea Orientata pe Obiecte"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="Proiectare Logica"/>
         <constructor-arg value="Bostan Ilie"/>
         <constructor-arg value="2022-02-06"/>
         <constructor-arg value="208"/>
@@ -87,8 +87,8 @@
 
     <bean id="examen7" class="beans.Examen">
         <constructor-arg value="7"/>
-        <constructor-arg value="3"/>
-        <constructor-arg value="Programarea Orientata pe Obiecte"/>
+        <constructor-arg value="2"/>
+        <constructor-arg value="Proiectare Logica"/>
         <constructor-arg value="Bostan Ilie"/>
         <constructor-arg value="2022-02-06"/>
         <constructor-arg value="207"/>
@@ -96,8 +96,8 @@
 
     <bean id="examen8" class="beans.Examen">
         <constructor-arg value="8"/>
-        <constructor-arg value="4"/>
-        <constructor-arg value="Programarea Orientata pe Obiecte"/>
+        <constructor-arg value="2"/>
+        <constructor-arg value="Proiectare Logica"/>
         <constructor-arg value="Bostan Ilie"/>
         <constructor-arg value="2022-02-06"/>
         <constructor-arg value="208"/>
@@ -148,6 +148,6 @@
     <bean id="nota_examen8" class="beans.NotaExamen">
         <constructor-arg value="8"/>
         <constructor-arg value="4"/>
-        <constructor-arg value="3"/>
+        <constructor-arg value="0"/>
     </bean>
 </beans>

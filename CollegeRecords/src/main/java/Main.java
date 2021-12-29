@@ -48,8 +48,11 @@ public class Main {
                 int examenID = notaExamen.getExamen_id();
                 Examen crtExamen = examene.get(examenID - 1);
 
+                String nota = notaExamen.getNota() == 0 ? "NULL" : Integer.toString(notaExamen.getNota());
+
                 output += studentID + " " + crtStudent.getNume() + " " + crtStudent.getGrupa() +
-                        " " + crtExamen.getMaterie() + " " + crtExamen.getData() + "\n";
+                        " " + examenID + " " + crtExamen.getMaterie() + " " + crtExamen.getData() + " " + crtExamen.getGrupa() +
+                        " " + nota + "\n";
             }
         }
 

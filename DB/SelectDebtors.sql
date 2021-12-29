@@ -1,5 +1,5 @@
-select vali_schema.student.student_id, vali_schema.student.nume, vali_schema.student.grupa, vali_schema.examen.materie, vali_schema.examen.data
-from vali_schema.student
-inner join vali_schema.examen on vali_schema.student.grupa = vali_schema.examen.grupa
-inner join vali_schema.nota_examen on vali_schema.examen.examen_id = vali_schema.nota_examen.examen_id
-where vali_schema.nota_examen.nota < 5;
+SELECT s.student_id, s.nume, s.grupa grupaS, e.examen_id, e.materie, e.data, e.grupa grupaE, n.nota
+FROM vali_schema.student s
+INNER JOIN vali_schema.nota_examen n ON s.student_id = n.student_id
+INNER JOIN vali_schema.examen e ON n.examen_id = e.examen_id
+WHERE n.nota < 5 OR n.nota IS NULL;

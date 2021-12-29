@@ -29,6 +29,10 @@ public class Examen {
                 '}';
     }
 
+    public int getGrupa() {
+        return grupa;
+    }
+
     public String getMaterie() {
         return materie;
     }

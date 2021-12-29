@@ -1,4 +1,4 @@
 [{"student_id":1, "nume":"Valentin", "grupa":1, "an_studii":2},
- {"student_id":2, "nume":"Daniel", "grupa":2, "an_studii":4},
- {"student_id":3, "nume":"Ion", "grupa":3, "an_studii":3},
- {"student_id":4, "nume":"Marius", "grupa":4, "an_studii":4}]
+ {"student_id":2, "nume":"Daniel", "grupa":1, "an_studii":4},
+ {"student_id":3, "nume":"Ion", "grupa":1, "an_studii":3},
+ {"student_id":4, "nume":"Marius", "grupa":1, "an_studii":4}]
