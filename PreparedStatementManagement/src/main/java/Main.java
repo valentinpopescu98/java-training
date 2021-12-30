@@ -2,9 +2,9 @@ public class Main {
     public static void main(String[] args) {
         Manager manager = new Manager();
 
-//        manager.InsertRow("Vali", 3, 4);
-//        manager.DeleteRow(11);
-//        manager.UpdateRow("Cristian", 1, "Marian");
+//        manager.InsertRow("Georgiana", 6, -1);
+//        manager.DeleteRow(12);
+//        manager.UpdateRow("Cristina", 2, "Andreea");
         manager.Query();
 
         manager.DestroyConnection();
