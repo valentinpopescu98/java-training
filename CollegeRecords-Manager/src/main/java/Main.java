@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Manager manager = new Manager();
+        Manager manager = new Manager_DataSource();
 
 //        manager.InsertRow("Vali", 3, 4);
 //        manager.DeleteRow(11);

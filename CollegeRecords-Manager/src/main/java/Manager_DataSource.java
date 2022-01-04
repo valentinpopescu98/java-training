@@ -6,15 +6,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
 
-public class Manager {
+public class Manager_DataSource extends Manager {
     Connection connection;
     Statement statement;
     ResultSet resultSet;
 
-    public Manager() {
-        CreateConnection();
-    }
-
+    @Override
     public void DestroyConnection() {
         try {
             if (resultSet != null) {
@@ -34,6 +31,7 @@ public class Manager {
         }
     }
 
+    @Override
     public void InsertRow(String nume, int grupa, int an_studii) {
         try {
             int i = statement.executeUpdate(String.format("insert into student (nume, grupa, an_studii) values ('%s', %d, %d)",
@@ -46,6 +44,7 @@ public class Manager {
         }
     }
 
+    @Override
     public void DeleteRow(int student_id) {
         try {
             int i = statement.executeUpdate("delete from student where student_id = " + student_id);
@@ -57,6 +56,7 @@ public class Manager {
         }
     }
 
+    @Override
     public void UpdateRow(String nume_nou, int grupa, String nume_vechi) {
         try {
             int i = statement.executeUpdate(String.format("update student set nume = '%s', grupa = %d where nume = '%s'",
@@ -69,6 +69,7 @@ public class Manager {
         }
     }
 
+    @Override
     public void Query() {
         try {
             resultSet = statement.executeQuery("select * from student");
@@ -83,7 +84,8 @@ public class Manager {
         }
     }
 
-    private void CreateConnection() {
+    @Override
+    void CreateConnection() {
         Properties props = new Properties();
         FileInputStream fis;
         MysqlDataSource ds = null;
