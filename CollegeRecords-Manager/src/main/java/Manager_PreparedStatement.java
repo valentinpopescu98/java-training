@@ -3,15 +3,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Manager {
+public class Manager_PreparedStatement extends Manager {
     Connection connection;
     PreparedStatement statement;
     ResultSet resultSet;
 
-    public Manager() {
-        CreateConnection();
-    }
-
+    @Override
     public void DestroyConnection() {
         try {
             connection.close();
@@ -21,6 +18,7 @@ public class Manager {
         }
     }
 
+    @Override
     public void InsertRow(String nume, int grupa, int an_studii){
         try {
             statement = connection.prepareStatement(
@@ -37,6 +35,7 @@ public class Manager {
         }
     }
 
+    @Override
     public void DeleteRow(int student_id) {
         try {
             statement = connection.prepareStatement(
@@ -51,6 +50,7 @@ public class Manager {
         }
     }
 
+    @Override
     public void UpdateRow(String nume_nou, int grupa, String nume_vechi) {
         try {
             statement = connection.prepareStatement(
@@ -68,6 +68,7 @@ public class Manager {
         }
     }
 
+    @Override
     public void Query() {
         try {
             statement = connection.prepareStatement("select * from student");
@@ -83,7 +84,8 @@ public class Manager {
         }
     }
 
-    private void CreateConnection() {
+    @Override
+    void CreateConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 
