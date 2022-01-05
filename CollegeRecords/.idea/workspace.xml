@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ccd28ec7-5c44-4534-ae93-df6d096e5f55" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DbProps.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/managers/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/Manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/DbProps.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/Manager$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/Manager$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/Manager.class" afterDir="false" />
@@ -86,6 +86,7 @@
       <workItem from="1641376665928" duration="9848000" />
       <workItem from="1641387002048" duration="47000" />
       <workItem from="1641389811197" duration="1218000" />
+      <workItem from="1641392799869" duration="977000" />
     </task>
     <servers />
   </component>

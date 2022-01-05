@@ -1,6 +1,5 @@
 package managers;
 
-import dao.DbProps;
 import dao.Querier;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.context.ApplicationContext;
@@ -30,13 +29,8 @@ public class Manager {
     }
 
     void createConnection() {
-        DbProps props = springContext.getBean(DbProps.class);
-
         try {
-            dataSource = new MysqlDataSource();
-            dataSource.setURL(props.getUrl());
-            dataSource.setUser(props.getUser());
-            dataSource.setPassword(props.getPassword());
+            dataSource = springContext.getBean(MysqlDataSource.class);
 
             connection = dataSource.getConnection();
         }
