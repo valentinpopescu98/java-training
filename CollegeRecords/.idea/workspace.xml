@@ -5,54 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd28ec7-5c44-4534-ae93-df6d096e5f55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../CollegeRecords-Manager/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CollegeRecords-Manager/src/main/java/managers/Manager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CollegeRecords-Manager/target/classes/managers/Manager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CollegeRecords-Manager/target/classes/managers/Manager_DataSource.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CollegeRecords-Manager/target/classes/managers/Manager_PreparedStatement.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/Querier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/managers/Manager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Debtor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/Querier.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/managers/Manager$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/managers/Manager$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/managers/Manager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Debtor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecords-Manager/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CollegeRecords-Manager/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecords-Manager/src/main/java/Manager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecords-Manager/src/main/java/Manager_DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CollegeRecords-Manager/src/main/java/managers/Manager_DataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecords-Manager/src/main/java/Manager_PreparedStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CollegeRecords-Manager/src/main/java/managers/Manager_PreparedStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecords-Manager/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../CollegeRecords-Manager/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecords-Manager/target/classes/Manager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecords-Manager/target/classes/Manager_DataSource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecords-Manager/target/classes/Manager_PreparedStatement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/beans/Examen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/beans/NotaExamen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/beans/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/Manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/beans/Examen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/beans/NotaExamen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/beans/Student.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/src/main/java/beans/Querier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/src/main/resources/config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/target/classes/beans/Querier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CollegeRecordsDB-SpringQuerier/target/classes/config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/Manager$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/Manager$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/Manager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,10 +85,22 @@
       <updated>1641376662406</updated>
       <workItem from="1641376665928" duration="9848000" />
       <workItem from="1641387002048" duration="47000" />
+      <workItem from="1641389811197" duration="1218000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

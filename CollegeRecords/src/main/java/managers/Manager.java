@@ -1,5 +1,6 @@
 package managers;
 
+import dao.DbProps;
 import dao.Querier;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.context.ApplicationContext;
@@ -10,40 +11,32 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import model.Debtor;
 
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 public class Manager {
     ApplicationContext springContext;
     Connection connection;
     MysqlDataSource dataSource;
 
-    public Manager(String propsPath) {
+    public Manager() {
         springContext = new ClassPathXmlApplicationContext("config.xml");
 
-        createConnection(propsPath);
+        createConnection();
     }
 
-    void createConnection(String propsPath) {
-        Properties props = new Properties();
-        FileInputStream fis;
+    void createConnection() {
+        DbProps props = springContext.getBean(DbProps.class);
 
         try {
-            fis = new FileInputStream(propsPath);
-            props.load(fis);
-
             dataSource = new MysqlDataSource();
-            dataSource.setURL(props.getProperty("url"));
-            dataSource.setUser(props.getProperty("user"));
-            dataSource.setPassword(props.getProperty("password"));
-
-            fis.close();
+            dataSource.setURL(props.getUrl());
+            dataSource.setUser(props.getUser());
+            dataSource.setPassword(props.getPassword());
 
             connection = dataSource.getConnection();
         }
