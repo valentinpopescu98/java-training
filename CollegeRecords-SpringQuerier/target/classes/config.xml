@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="beans.Querier">
+        <constructor-arg value=
+            "SELECT s.student_id, s.nume, s.grupa grupaS, e.examen_id, e.materie, e.data, e.grupa grupaE, n.nota
+             FROM vali_schema.student s
+             INNER JOIN vali_schema.nota_examen n ON s.student_id = n.student_id
+             INNER JOIN vali_schema.examen e ON n.examen_id = e.examen_id
+             WHERE n.nota &lt; 5 OR n.nota IS NULL;"/>
+    </bean>
+
+    <bean id="student1" class="beans.Student">
+        <constructor-arg value="1"/>
+        <constructor-arg value="Valentin"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="2"/>
+    </bean>
+
+    <bean id="student2" class="beans.Student">
+        <constructor-arg value="2"/>
+        <constructor-arg value="Daniel"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="4"/>
+    </bean>
+
+    <bean id="student3" class="beans.Student">
+        <constructor-arg value="3"/>
+        <constructor-arg value="Ion"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="3"/>
+    </bean>
+
+    <bean id="student4" class="beans.Student">
+        <constructor-arg value="4"/>
+        <constructor-arg value="Marius"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="4"/>
+    </bean>
+
+    <bean id="examen1" class="beans.Examen">
+        <constructor-arg value="1"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="Programarea Orientata pe Obiecte"/>
+        <constructor-arg value="Ionita Dan"/>
+        <constructor-arg value="2022-02-01"/>
+        <constructor-arg value="308"/>
+    </bean>
+
+    <bean id="examen2" class="beans.Examen">
+        <constructor-arg value="2"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="Programarea Orientata pe Obiecte"/>
+        <constructor-arg value="Ionita Dan"/>
+        <constructor-arg value="2022-02-01"/>
+        <constructor-arg value="306"/>
+    </bean>
+
+    <bean id="examen3" class="beans.Examen">
+        <constructor-arg value="3"/>
+        <constructor-arg value="2"/>
+        <constructor-arg value="Programarea Orientata pe Obiecte"/>
+        <constructor-arg value="Ionita Dan"/>
+        <constructor-arg value="2022-02-01"/>
+        <constructor-arg value="308"/>
+    </bean>
+
+    <bean id="examen4" class="beans.Examen">
+        <constructor-arg value="4"/>
+        <constructor-arg value="2"/>
+        <constructor-arg value="Programarea Orientata pe Obiecte"/>
+        <constructor-arg value="Ionita Dan"/>
+        <constructor-arg value="2022-02-01"/>
+        <constructor-arg value="306"/>
+    </bean>
+
+    <bean id="examen5" class="beans.Examen">
+        <constructor-arg value="5"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="Proiectare Logica"/>
+        <constructor-arg value="Bostan Ilie"/>
+        <constructor-arg value="2022-02-06"/>
+        <constructor-arg value="207"/>
+    </bean>
+
+    <bean id="examen6" class="beans.Examen">
+        <constructor-arg value="6"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="Proiectare Logica"/>
+        <constructor-arg value="Bostan Ilie"/>
+        <constructor-arg value="2022-02-06"/>
+        <constructor-arg value="208"/>
+    </bean>
+
+    <bean id="examen7" class="beans.Examen">
+        <constructor-arg value="7"/>
+        <constructor-arg value="2"/>
+        <constructor-arg value="Proiectare Logica"/>
+        <constructor-arg value="Bostan Ilie"/>
+        <constructor-arg value="2022-02-06"/>
+        <constructor-arg value="207"/>
+    </bean>
+
+    <bean id="examen8" class="beans.Examen">
+        <constructor-arg value="8"/>
+        <constructor-arg value="2"/>
+        <constructor-arg value="Proiectare Logica"/>
+        <constructor-arg value="Bostan Ilie"/>
+        <constructor-arg value="2022-02-06"/>
+        <constructor-arg value="208"/>
+    </bean>
+
+    <bean id="nota_examen1" class="beans.NotaExamen">
+        <constructor-arg value="1"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="10"/>
+    </bean>
+
+    <bean id="nota_examen2" class="beans.NotaExamen">
+        <constructor-arg value="2"/>
+        <constructor-arg value="2"/>
+        <constructor-arg value="9"/>
+    </bean>
+
+    <bean id="nota_examen3" class="beans.NotaExamen">
+        <constructor-arg value="3"/>
+        <constructor-arg value="3"/>
+        <constructor-arg value="4"/>
+    </bean>
+
+    <bean id="nota_examen4" class="beans.NotaExamen">
+        <constructor-arg value="4"/>
+        <constructor-arg value="4"/>
+        <constructor-arg value="4"/>
+    </bean>
+
+    <bean id="nota_examen5" class="beans.NotaExamen">
+        <constructor-arg value="5"/>
+        <constructor-arg value="1"/>
+        <constructor-arg value="5"/>
+    </bean>
+
+    <bean id="nota_examen6" class="beans.NotaExamen">
+        <constructor-arg value="6"/>
+        <constructor-arg value="2"/>
+        <constructor-arg value="6"/>
+    </bean>
+
+    <bean id="nota_examen7" class="beans.NotaExamen">
+        <constructor-arg value="7"/>
+        <constructor-arg value="3"/>
+        <constructor-arg value="4"/>
+    </bean>
+
+    <bean id="nota_examen8" class="beans.NotaExamen">
+        <constructor-arg value="8"/>
+        <constructor-arg value="4"/>
+        <constructor-arg value="0"/>
+    </bean>
+</beans>
