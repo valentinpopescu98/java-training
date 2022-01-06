@@ -1,13 +1,16 @@
 package main;
 
 import dao.StudentDao;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainDelete {
     public static void main(String[] args) {
-        StudentDao studentDao = new StudentDao();
+        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        StudentDao dao = context.getBean(StudentDao.class);
 
-        studentDao.deleteRow(17);
+        dao.deleteRow(18);
 
-        studentDao.killConnection();
+        dao.killConnection();
     }
 }

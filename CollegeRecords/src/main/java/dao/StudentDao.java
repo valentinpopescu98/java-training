@@ -1,8 +1,6 @@
 package dao;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -24,12 +22,7 @@ public class StudentDao {
     private String update;
     private String query;
 
-    ApplicationContext springContext;
     MysqlDataSource dataSource;
-
-    public StudentDao() {
-        springContext = new ClassPathXmlApplicationContext("config.xml");
-    }
 
     public void killConnection() {
         try {
