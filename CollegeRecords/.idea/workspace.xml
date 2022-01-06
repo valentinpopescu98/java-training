@@ -5,14 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd28ec7-5c44-4534-ae93-df6d096e5f55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/MainInsert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/managers/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/Manager$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/Manager$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Querier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/MainDelete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MainDelete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/MainInsert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MainInsert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/MainQueryAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MainQueryAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/MainQueryOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MainQueryOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/MainUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MainUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/StudentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/Querier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MainDelete.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MainDelete.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MainInsert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MainInsert.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MainQueryAll.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MainQueryAll.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MainQueryOne.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MainQueryOne.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MainUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MainUpdate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/Manager.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +73,7 @@
       <recent name="beans" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainQueryAll">
+  <component name="RunManager" selected="Application.MainInsert">
     <configuration name="MainDelete" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.MainDelete" />
       <module name="CollegeRecords" />
@@ -124,11 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainInsert" />
         <item itemvalue="Application.MainQueryAll" />
         <item itemvalue="Application.MainQueryOne" />
         <item itemvalue="Application.MainDelete" />
         <item itemvalue="Application.MainUpdate" />
-        <item itemvalue="Application.MainInsert" />
       </list>
     </recent_temporary>
   </component>
@@ -145,6 +156,7 @@
       <workItem from="1641389811197" duration="1218000" />
       <workItem from="1641392799869" duration="977000" />
       <workItem from="1641456018812" duration="4262000" />
+      <workItem from="1641464518337" duration="5234000" />
     </task>
     <servers />
   </component>

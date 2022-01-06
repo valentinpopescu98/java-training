@@ -1,10 +1,10 @@
 package main;
 
-import managers.Manager;
+import dao.StudentDao;
 
 public class MainUpdate {
     public static void main(String[] args) {
-        Manager manager = new Manager();
+        StudentDao manager = new StudentDao();
 
         manager.updateRow("Casian", 4, "Vali");
 

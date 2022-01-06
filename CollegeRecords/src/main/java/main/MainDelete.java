@@ -1,13 +1,13 @@
 package main;
 
-import managers.Manager;
+import dao.StudentDao;
 
 public class MainDelete {
     public static void main(String[] args) {
-        Manager manager = new Manager();
+        StudentDao studentDao = new StudentDao();
 
-        manager.deleteRow(17);
+        studentDao.deleteRow(17);
 
-        manager.killConnection();
+        studentDao.killConnection();
     }
 }

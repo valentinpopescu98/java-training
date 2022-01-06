@@ -1,6 +1,6 @@
 package main;
 
-import managers.Manager;
+import dao.StudentDao;
 import model.Debtor;
 
 public class MainQueryOne {
@@ -17,7 +17,7 @@ public class MainQueryOne {
     }
 
     public static void main(String[] args) {
-        Manager manager = new Manager();
+        StudentDao manager = new StudentDao();
 
         Debtor result = manager.queryOne();
         printOne(result);

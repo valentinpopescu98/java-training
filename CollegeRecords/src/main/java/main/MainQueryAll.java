@@ -1,6 +1,6 @@
 package main;
 
-import managers.Manager;
+import dao.StudentDao;
 import model.Debtor;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class MainQueryAll {
     }
 
     public static void main(String[] args) {
-        Manager manager = new Manager();
+        StudentDao manager = new StudentDao();
 
         List<Debtor> results = manager.queryAll();
         printAll(results);

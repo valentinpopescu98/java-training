@@ -1,10 +1,10 @@
 package main;
 
-import managers.Manager;
+import dao.StudentDao;
 
 public class MainInsert {
     public static void main(String[] args) {
-        Manager manager = new Manager();
+        StudentDao manager = new StudentDao();
 
         manager.insertRow("Vali", 5, 6);
 
