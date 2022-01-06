@@ -17,6 +17,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.String.valueOf;
+
 public class Manager {
     ApplicationContext springContext;
     Connection connection;
@@ -48,43 +50,43 @@ public class Manager {
         }
     }
 
-    public void insertRow() {
+    public void insertRow(String nume, int grupa, int anStudii) {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
         Querier querier = springContext.getBean(Querier.class);
 
         String sql = querier.getInsert();
         Map<String, String> params = new HashMap<>();
-        params.put("nume", "Vali");
-        params.put("grupa", "4");
-        params.put("an_studii", "3");
+        params.put("nume", nume);
+        params.put("grupa", valueOf(grupa));
+        params.put("an_studii", valueOf(anStudii));
 
         template.update(sql, params);
     }
 
-    public void deleteRow() {
+    public void deleteRow(int studentID) {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
         Querier querier = springContext.getBean(Querier.class);
 
         String sql = querier.getDelete();
-        SqlParameterSource param = new MapSqlParameterSource("student_id", "15");
+        SqlParameterSource param = new MapSqlParameterSource("student_id", valueOf(studentID));
 
         template.update(sql, param);
     }
 
-    public void updateRow() {
+    public void updateRow(String numeNou, int grupa, String numeVechi) {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
         Querier querier = springContext.getBean(Querier.class);
 
         String sql = querier.getUpdate();
         Map<String, String> params = new HashMap<>();
-        params.put("nume_nou", "Marian");
-        params.put("grupa", "3");
-        params.put("nume_vechi", "Vali");
+        params.put("nume_nou", numeNou);
+        params.put("grupa", valueOf(grupa));
+        params.put("nume_vechi", numeVechi);
 
         template.update(sql, params);
     }
 
-    public void queryOne() {
+    public Debtor queryOne() {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
         Querier querier = springContext.getBean(Querier.class);
 
@@ -108,18 +110,10 @@ public class Manager {
             }
         });
 
-        System.out.print(result.getStudent_id() + " ");
-        System.out.print(result.getNume() + " ");
-        System.out.print(result.getGrupa_student() + " ");
-        System.out.print(result.getExamen_id() + " ");
-        System.out.print(result.getMaterie() + " ");
-        System.out.print(result.getData() + " ");
-        System.out.print(result.getGrupa_examen() + " ");
-        System.out.print(result.getNota() + "\n");
-        System.out.println();
+        return result;
     }
 
-    public void query() {
+    public List<Debtor> queryAll() {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
         Querier querier = springContext.getBean(Querier.class);
 
@@ -143,16 +137,6 @@ public class Manager {
             }
         });
 
-        for (Debtor debtor : results) {
-            System.out.print(debtor.getStudent_id() + " ");
-            System.out.print(debtor.getNume() + " ");
-            System.out.print(debtor.getGrupa_student() + " ");
-            System.out.print(debtor.getExamen_id() + " ");
-            System.out.print(debtor.getMaterie() + " ");
-            System.out.print(debtor.getData() + " ");
-            System.out.print(debtor.getGrupa_examen() + " ");
-            System.out.print(debtor.getNota() + "\n");
-        }
-        System.out.println();
+        return results;
     }
 }
