@@ -3,6 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean class="com.mysql.cj.jdbc.MysqlDataSource">
+        <property name="url" value="jdbc:mysql://localhost:3306/vali_schema" />
+        <property name="user" value="vali" />
+        <property name="password" value="123456" />
+    </bean>
+
     <bean class="dao.Querier">
         <property name="insert" value="insert into student (nume, grupa, an_studii) values (:nume, :grupa, :an_studii)" />
 

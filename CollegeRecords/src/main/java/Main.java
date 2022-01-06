@@ -2,7 +2,7 @@ import managers.Manager;
 
 public class Main {
     public static void main(String[] args) {
-        Manager manager = new Manager("src/main/resources/db.properties");
+        Manager manager = new Manager();
 
 //        manager.insertRow();
 //        manager.deleteRow();
