@@ -1,9 +1,6 @@
-package managers;
+package dao;
 
-import dao.Querier;
 import com.mysql.cj.jdbc.MysqlDataSource;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -19,30 +16,17 @@ import java.util.Map;
 
 import static java.lang.String.valueOf;
 
-public class Manager {
-    ApplicationContext springContext;
-    Connection connection;
+public class StudentDao {
+    private String insert;
+    private String delete;
+    private String update;
+    private String query;
+
     MysqlDataSource dataSource;
-
-    public Manager() {
-        springContext = new ClassPathXmlApplicationContext("config.xml");
-
-        createConnection();
-    }
-
-    void createConnection() {
-        try {
-            dataSource = springContext.getBean(MysqlDataSource.class);
-
-            connection = dataSource.getConnection();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public void killConnection() {
         try {
+            Connection connection = dataSource.getConnection();
             connection.close();
         }
         catch (Exception e) {
@@ -52,9 +36,8 @@ public class Manager {
 
     public void insertRow(String nume, int grupa, int anStudii) {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
-        Querier querier = springContext.getBean(Querier.class);
 
-        String sql = querier.getInsert();
+        String sql = getInsert();
         Map<String, String> params = new HashMap<>();
         params.put("nume", nume);
         params.put("grupa", valueOf(grupa));
@@ -65,9 +48,8 @@ public class Manager {
 
     public void deleteRow(int studentID) {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
-        Querier querier = springContext.getBean(Querier.class);
 
-        String sql = querier.getDelete();
+        String sql = getDelete();
         SqlParameterSource param = new MapSqlParameterSource("student_id", valueOf(studentID));
 
         template.update(sql, param);
@@ -75,9 +57,8 @@ public class Manager {
 
     public void updateRow(String numeNou, int grupa, String numeVechi) {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
-        Querier querier = springContext.getBean(Querier.class);
 
-        String sql = querier.getUpdate();
+        String sql = getUpdate();
         Map<String, String> params = new HashMap<>();
         params.put("nume_nou", numeNou);
         params.put("grupa", valueOf(grupa));
@@ -88,9 +69,8 @@ public class Manager {
 
     public Debtor queryOne() {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
-        Querier querier = springContext.getBean(Querier.class);
 
-        String sql = querier.getQuery() + " LIMIT 1";
+        String sql = getQuery() + " LIMIT 1";
         SqlParameterSource param = new MapSqlParameterSource("nota", "5");
 
         Debtor result = template.queryForObject(sql, param, new RowMapper<Debtor>() {
@@ -115,9 +95,8 @@ public class Manager {
 
     public List<Debtor> queryAll() {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
-        Querier querier = springContext.getBean(Querier.class);
 
-        String sql = querier.getQuery();
+        String sql = getQuery();
         SqlParameterSource param = new MapSqlParameterSource("nota", "5");
 
         List<Debtor> results = template.query(sql, param, new RowMapper<Debtor>() {
@@ -138,5 +117,41 @@ public class Manager {
         });
 
         return results;
+    }
+
+    public void setDataSource(MysqlDataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    public String getInsert() {
+        return insert;
+    }
+
+    public void setInsert(String insert) {
+        this.insert = insert;
+    }
+
+    public String getDelete() {
+        return delete;
+    }
+
+    public void setDelete(String delete) {
+        this.delete = delete;
+    }
+
+    public String getUpdate() {
+        return update;
+    }
+
+    public void setUpdate(String update) {
+        this.update = update;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
     }
 }

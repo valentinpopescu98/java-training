@@ -1,13 +1,16 @@
 package main;
 
-import managers.Manager;
+import dao.StudentDao;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainInsert {
     public static void main(String[] args) {
-        Manager manager = new Manager();
+        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        StudentDao dao = context.getBean(StudentDao.class);
 
-        manager.insertRow("Vali", 5, 6);
+        dao.insertRow("Vali", 5, 6);
 
-        manager.killConnection();
+        dao.killConnection();
     }
 }

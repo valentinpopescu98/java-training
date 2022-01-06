@@ -1,7 +1,9 @@
 package main;
 
-import managers.Manager;
+import dao.StudentDao;
 import model.Debtor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainQueryOne {
     static void printOne(Debtor debtor) {
@@ -17,11 +19,12 @@ public class MainQueryOne {
     }
 
     public static void main(String[] args) {
-        Manager manager = new Manager();
+        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        StudentDao dao = context.getBean(StudentDao.class);
 
-        Debtor result = manager.queryOne();
+        Debtor result = dao.queryOne();
         printOne(result);
 
-        manager.killConnection();
+        dao.killConnection();
     }
 }

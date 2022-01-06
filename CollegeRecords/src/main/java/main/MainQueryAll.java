@@ -1,7 +1,9 @@
 package main;
 
-import managers.Manager;
+import dao.StudentDao;
 import model.Debtor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
@@ -21,11 +23,12 @@ public class MainQueryAll {
     }
 
     public static void main(String[] args) {
-        Manager manager = new Manager();
+        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        StudentDao dao = context.getBean(StudentDao.class);
 
-        List<Debtor> results = manager.queryAll();
+        List<Debtor> results = dao.queryAll();
         printAll(results);
 
-        manager.killConnection();
+        dao.killConnection();
     }
 }
