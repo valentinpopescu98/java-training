@@ -7,13 +7,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainQueryOne {
     static void printOne(Debtor debtor) {
-        System.out.print(debtor.getStudent_id() + " ");
+        System.out.print(debtor.getStudentId() + " ");
         System.out.print(debtor.getNume() + " ");
-        System.out.print(debtor.getGrupa_student() + " ");
-        System.out.print(debtor.getExamen_id() + " ");
+        System.out.print(debtor.getGrupaStudent() + " ");
+        System.out.print(debtor.getExamenId() + " ");
         System.out.print(debtor.getMaterie() + " ");
         System.out.print(debtor.getData() + " ");
-        System.out.print(debtor.getGrupa_examen() + " ");
+        System.out.print(debtor.getGrupaExamen() + " ");
         System.out.print(debtor.getNota() + "\n");
         System.out.println();
     }

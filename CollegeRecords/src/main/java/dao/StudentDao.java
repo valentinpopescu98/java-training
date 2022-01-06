@@ -41,16 +41,16 @@ public class StudentDao {
         Map<String, String> params = new HashMap<>();
         params.put("nume", nume);
         params.put("grupa", valueOf(grupa));
-        params.put("an_studii", valueOf(anStudii));
+        params.put("anStudii", valueOf(anStudii));
 
         template.update(sql, params);
     }
 
-    public void deleteRow(int studentID) {
+    public void deleteRow(int studentId) {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
 
         String sql = getDelete();
-        SqlParameterSource param = new MapSqlParameterSource("student_id", valueOf(studentID));
+        SqlParameterSource param = new MapSqlParameterSource("studentId", valueOf(studentId));
 
         template.update(sql, param);
     }
@@ -60,9 +60,9 @@ public class StudentDao {
 
         String sql = getUpdate();
         Map<String, String> params = new HashMap<>();
-        params.put("nume_nou", numeNou);
+        params.put("numeNou", numeNou);
         params.put("grupa", valueOf(grupa));
-        params.put("nume_vechi", numeVechi);
+        params.put("numeVechi", numeVechi);
 
         template.update(sql, params);
     }
@@ -77,13 +77,13 @@ public class StudentDao {
             @Override
             public Debtor mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Debtor debtor = new Debtor();
-                debtor.setStudent_id(rs.getInt("student_id"));
+                debtor.setStudentId(rs.getInt("student_id"));
                 debtor.setNume(rs.getString("nume"));
-                debtor.setGrupa_student(rs.getInt("grupaS"));
-                debtor.setExamen_id(rs.getInt("examen_id"));
+                debtor.setGrupaStudent(rs.getInt("grupaS"));
+                debtor.setExamenId(rs.getInt("examen_id"));
                 debtor.setMaterie(rs.getString("materie"));
                 debtor.setData(rs.getString("data"));
-                debtor.setGrupa_examen(rs.getInt("grupaE"));
+                debtor.setGrupaExamen(rs.getInt("grupaE"));
                 debtor.setNota(rs.getInt("nota"));
 
                 return debtor;
@@ -103,13 +103,13 @@ public class StudentDao {
             @Override
             public Debtor mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Debtor debtor = new Debtor();
-                debtor.setStudent_id(rs.getInt("student_id"));
+                debtor.setStudentId(rs.getInt("student_id"));
                 debtor.setNume(rs.getString("nume"));
-                debtor.setGrupa_student(rs.getInt("grupaS"));
-                debtor.setExamen_id(rs.getInt("examen_id"));
+                debtor.setGrupaStudent(rs.getInt("grupaS"));
+                debtor.setExamenId(rs.getInt("examen_id"));
                 debtor.setMaterie(rs.getString("materie"));
                 debtor.setData(rs.getString("data"));
-                debtor.setGrupa_examen(rs.getInt("grupaE"));
+                debtor.setGrupaExamen(rs.getInt("grupaE"));
                 debtor.setNota(rs.getInt("nota"));
 
                 return debtor;

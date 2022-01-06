@@ -1,21 +1,21 @@
 package model;
 
 public class Debtor {
-    int student_id;
+    int studentId;
     String nume;
-    int grupa_student;
-    int examen_id;
+    int grupaStudent;
+    int examenId;
     String materie;
     String data;
-    int grupa_examen;
+    int grupaExamen;
     int nota;
 
-    public int getStudent_id() {
-        return student_id;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setStudent_id(int student_id) {
-        this.student_id = student_id;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public String getNume() {
@@ -26,20 +26,20 @@ public class Debtor {
         this.nume = nume;
     }
 
-    public int getGrupa_student() {
-        return grupa_student;
+    public int getGrupaStudent() {
+        return grupaStudent;
     }
 
-    public void setGrupa_student(int grupa_student) {
-        this.grupa_student = grupa_student;
+    public void setGrupaStudent(int grupaStudent) {
+        this.grupaStudent = grupaStudent;
     }
 
-    public int getExamen_id() {
-        return examen_id;
+    public int getExamenId() {
+        return examenId;
     }
 
-    public void setExamen_id(int examen_id) {
-        this.examen_id = examen_id;
+    public void setExamenId(int examenId) {
+        this.examenId = examenId;
     }
 
     public String getMaterie() {
@@ -58,12 +58,12 @@ public class Debtor {
         this.data = data;
     }
 
-    public int getGrupa_examen() {
-        return grupa_examen;
+    public int getGrupaExamen() {
+        return grupaExamen;
     }
 
-    public void setGrupa_examen(int grupa_examen) {
-        this.grupa_examen = grupa_examen;
+    public void setGrupaExamen(int grupaExamen) {
+        this.grupaExamen = grupaExamen;
     }
 
     public int getNota() {
