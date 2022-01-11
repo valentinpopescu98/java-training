@@ -1,15 +1,15 @@
-package main;
+package primary.exam;
 
-import dao.StudentDao;
+import dao.ExamDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class MainInsert {
+public class MainDelete {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
-        StudentDao dao = context.getBean(StudentDao.class);
+        ExamDao dao = context.getBean(ExamDao.class);
 
-        dao.insertRow("Vali", 5, 6);
+        dao.deleteExam(9);
 
         dao.killConnection();
     }

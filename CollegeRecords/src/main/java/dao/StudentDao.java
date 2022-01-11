@@ -17,12 +17,12 @@ import java.util.Map;
 import static java.lang.String.valueOf;
 
 public class StudentDao {
-    private String insert;
-    private String delete;
-    private String update;
-    private String query;
+    private MysqlDataSource dataSource;
 
-    MysqlDataSource dataSource;
+    private String insertStudent;
+    private String deleteStudent;
+    private String updateStudent;
+    private String queryStudent;
 
     public void killConnection() {
         try {
@@ -34,83 +34,58 @@ public class StudentDao {
         }
     }
 
-    public void insertRow(String nume, int grupa, int anStudii) {
+    public void insertStudent(String name, int studyGroup, int studyYear) {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
 
-        String sql = getInsert();
+        String sql = getInsertStudent();
         Map<String, String> params = new HashMap<>();
-        params.put("nume", nume);
-        params.put("grupa", valueOf(grupa));
-        params.put("anStudii", valueOf(anStudii));
+        params.put("name", name);
+        params.put("studyGroup", valueOf(studyGroup));
+        params.put("studyYear", valueOf(studyYear));
 
         template.update(sql, params);
     }
 
-    public void deleteRow(int studentId) {
+    public void deleteStudent(int studentId) {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
 
-        String sql = getDelete();
+        String sql = getDeleteStudent();
         SqlParameterSource param = new MapSqlParameterSource("studentId", valueOf(studentId));
 
         template.update(sql, param);
     }
 
-    public void updateRow(String numeNou, int grupa, String numeVechi) {
+    public void updateStudent(String name, int studyGroup, int studyYear, int studentId) {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
 
-        String sql = getUpdate();
+        String sql = getUpdateStudent();
         Map<String, String> params = new HashMap<>();
-        params.put("numeNou", numeNou);
-        params.put("grupa", valueOf(grupa));
-        params.put("numeVechi", numeVechi);
+        params.put("name", name);
+        params.put("studyGroup", valueOf(studyGroup));
+        params.put("studyYear", valueOf(studyYear));
+        params.put("studentId", valueOf(studentId));
 
         template.update(sql, params);
     }
 
-    public Debtor queryOne() {
+    public List<Debtor> queryDebtors() {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
 
-        String sql = getQuery() + " LIMIT 1";
-        SqlParameterSource param = new MapSqlParameterSource("nota", "5");
-
-        Debtor result = template.queryForObject(sql, param, new RowMapper<Debtor>() {
-            @Override
-            public Debtor mapRow(ResultSet rs, int rowNum) throws SQLException {
-                Debtor debtor = new Debtor();
-                debtor.setStudentId(rs.getInt("student_id"));
-                debtor.setNume(rs.getString("nume"));
-                debtor.setGrupaStudent(rs.getInt("grupaS"));
-                debtor.setExamenId(rs.getInt("examen_id"));
-                debtor.setMaterie(rs.getString("materie"));
-                debtor.setData(rs.getString("data"));
-                debtor.setGrupaExamen(rs.getInt("grupaE"));
-                debtor.setNota(rs.getInt("nota"));
-
-                return debtor;
-            }
-        });
-
-        return result;
-    }
-
-    public List<Debtor> queryAll() {
-        NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
-
-        String sql = getQuery();
-        SqlParameterSource param = new MapSqlParameterSource("nota", "5");
+        String sql = getQueryStudent();
+        SqlParameterSource param = new MapSqlParameterSource("grade", "5");
 
         List<Debtor> results = template.query(sql, param, new RowMapper<Debtor>() {
             @Override
             public Debtor mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Debtor debtor = new Debtor();
                 debtor.setStudentId(rs.getInt("student_id"));
-                debtor.setNume(rs.getString("nume"));
-                debtor.setGrupaStudent(rs.getInt("grupaS"));
-                debtor.setExamenId(rs.getInt("examen_id"));
-                debtor.setMaterie(rs.getString("materie"));
-                debtor.setData(rs.getString("data"));
-                debtor.setGrupaExamen(rs.getInt("grupaE"));
-                debtor.setNota(rs.getInt("nota"));
+                debtor.setName(rs.getString("name"));
+                debtor.setGroupStudent(rs.getInt("group_student"));
+                debtor.setExamId(rs.getInt("exam_id"));
+                debtor.setSubject(rs.getString("subject"));
+                debtor.setDate(rs.getString("date"));
+                debtor.setGroupExam(rs.getInt("group_exam"));
+                debtor.setGrade(rs.getInt("grade"));
 
                 return debtor;
             }
@@ -123,35 +98,35 @@ public class StudentDao {
         this.dataSource = dataSource;
     }
 
-    public String getInsert() {
-        return insert;
+    public String getInsertStudent() {
+        return insertStudent;
     }
 
-    public void setInsert(String insert) {
-        this.insert = insert;
+    public void setInsertStudent(String insertStudent) {
+        this.insertStudent = insertStudent;
     }
 
-    public String getDelete() {
-        return delete;
+    public String getDeleteStudent() {
+        return deleteStudent;
     }
 
-    public void setDelete(String delete) {
-        this.delete = delete;
+    public void setDeleteStudent(String deleteStudent) {
+        this.deleteStudent = deleteStudent;
     }
 
-    public String getUpdate() {
-        return update;
+    public String getUpdateStudent() {
+        return updateStudent;
     }
 
-    public void setUpdate(String update) {
-        this.update = update;
+    public void setUpdateStudent(String updateStudent) {
+        this.updateStudent = updateStudent;
     }
 
-    public String getQuery() {
-        return query;
+    public String getQueryStudent() {
+        return queryStudent;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public void setQueryStudent(String queryStudent) {
+        this.queryStudent = queryStudent;
     }
 }
