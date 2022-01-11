@@ -8,21 +8,38 @@
         <property name="user" value="vali" />
         <property name="password" value="123456" />
     </bean>
+
     <bean class="dao.StudentDao">
         <property name="dataSource" ref="mySqlDS" />
-        <property name="insert" value="insert into student (nume, grupa, an_studii) values (:nume, :grupa, :anStudii)" />
-        <property name="delete" value="delete from student where student_id = :studentId" />
-        <property name="update" value="update student set nume = :numeNou, grupa = :grupa where nume = :numeVechi" />
-        <property name="query">
+
+        <property name="insertStudent" value="insert into student (name, study_group, study_year)
+                    values (:name, :studyGroup, :studyYear)" />
+        <property name="deleteStudent" value="delete from student where student_id = :studentId" />
+        <property name="updateStudent" value="update student set name = :name, study_group = :studyGroup,
+                    study_year = :studyYear where `student_id` = :studentId" />
+        <property name="queryStudent">
             <value>
                 <![CDATA[
-                    SELECT s.student_id, s.nume, s.grupa grupaS, e.examen_id, e.materie, e.data, e.grupa grupaE, n.nota
+                    SELECT s.student_id, s.name, s.study_group group_student, e.exam_id, e.subject,
+                    e.date, e.study_group group_exam, n.grade
                     FROM student s
-                    INNER JOIN nota_examen n ON s.student_id = n.student_id
-                    INNER JOIN examen e ON n.examen_id = e.examen_id
-                    WHERE n.nota < :nota OR n.nota IS NULL
+                    INNER JOIN exam_grade n ON s.student_id = n.student_id
+                    INNER JOIN exam e ON n.exam_id = e.exam_id
+                    WHERE n.grade < :grade OR n.grade IS NULL
                 ]]>
             </value>
         </property>
+    </bean>
+
+    <bean class="dao.ExamDao">
+        <property name="dataSource" ref="mySqlDS" />
+
+        <property name="insertExam" value="insert into exam (study_group, subject, professor_name, date, classroom)
+                    values (:studyGroup, :subject, :professorName, :date, :classroom)" />
+        <property name="deleteExam" value="delete from exam where exam_id = :examId" />
+        <property name="updateExam" value="update exam set study_group = :studyGroup, subject = :subject,
+                    professor_name = :professorName, date = :date, classroom = :classroom
+                    where exam_id = :examId" />
+        <property name="queryExam" value="select * from exam where exam_id = :examId" />
     </bean>
 </beans>

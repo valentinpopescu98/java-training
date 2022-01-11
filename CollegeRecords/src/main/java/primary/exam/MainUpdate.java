@@ -1,15 +1,16 @@
-package main;
+package primary.exam;
 
-import dao.StudentDao;
+import dao.ExamDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class MainDelete {
+public class MainUpdate {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
-        StudentDao dao = context.getBean(StudentDao.class);
+        ExamDao dao = context.getBean(ExamDao.class);
 
-        dao.deleteRow(18);
+        dao.updateExam(2, "Limbaje Formale si Automate", "Birleanu Silviu",
+                "2015-02-09", 305, 9);
 
         dao.killConnection();
     }

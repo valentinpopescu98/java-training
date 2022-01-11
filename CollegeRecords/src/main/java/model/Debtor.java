@@ -2,13 +2,13 @@ package model;
 
 public class Debtor {
     int studentId;
-    String nume;
-    int grupaStudent;
-    int examenId;
-    String materie;
-    String data;
-    int grupaExamen;
-    int nota;
+    String name;
+    int groupStudent;
+    int examId;
+    String subject;
+    String date;
+    int groupExam;
+    int grade;
 
     public int getStudentId() {
         return studentId;
@@ -18,59 +18,59 @@ public class Debtor {
         this.studentId = studentId;
     }
 
-    public String getNume() {
-        return nume;
+    public String getName() {
+        return name;
     }
 
-    public void setNume(String nume) {
-        this.nume = nume;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getGrupaStudent() {
-        return grupaStudent;
+    public int getGroupStudent() {
+        return groupStudent;
     }
 
-    public void setGrupaStudent(int grupaStudent) {
-        this.grupaStudent = grupaStudent;
+    public void setGroupStudent(int groupStudent) {
+        this.groupStudent = groupStudent;
     }
 
-    public int getExamenId() {
-        return examenId;
+    public int getExamId() {
+        return examId;
     }
 
-    public void setExamenId(int examenId) {
-        this.examenId = examenId;
+    public void setExamId(int examId) {
+        this.examId = examId;
     }
 
-    public String getMaterie() {
-        return materie;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setMaterie(String materie) {
-        this.materie = materie;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
-    public String getData() {
-        return data;
+    public String getDate() {
+        return date;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public int getGrupaExamen() {
-        return grupaExamen;
+    public int getGroupExam() {
+        return groupExam;
     }
 
-    public void setGrupaExamen(int grupaExamen) {
-        this.grupaExamen = grupaExamen;
+    public void setGroupExam(int groupExam) {
+        this.groupExam = groupExam;
     }
 
-    public int getNota() {
-        return nota;
+    public int getGrade() {
+        return grade;
     }
 
-    public void setNota(int nota) {
-        this.nota = nota;
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 }

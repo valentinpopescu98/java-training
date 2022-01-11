@@ -1,4 +1,4 @@
-package main;
+package primary.student;
 
 import dao.StudentDao;
 import model.Debtor;
@@ -7,17 +7,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
-public class MainQueryAll {
-    static void printAll(List<Debtor> debtors) {
+public class MainQuery {
+    static void print(List<Debtor> debtors) {
         for (Debtor debtor : debtors) {
             System.out.print(debtor.getStudentId() + " ");
-            System.out.print(debtor.getNume() + " ");
-            System.out.print(debtor.getGrupaStudent() + " ");
-            System.out.print(debtor.getExamenId() + " ");
-            System.out.print(debtor.getMaterie() + " ");
-            System.out.print(debtor.getData() + " ");
-            System.out.print(debtor.getGrupaExamen() + " ");
-            System.out.print(debtor.getNota() + "\n");
+            System.out.print(debtor.getName() + " ");
+            System.out.print(debtor.getGroupStudent() + " ");
+            System.out.print(debtor.getExamId() + " ");
+            System.out.print(debtor.getSubject() + " ");
+            System.out.print(debtor.getDate() + " ");
+            System.out.print(debtor.getGroupExam() + " ");
+            System.out.print(debtor.getGrade() + "\n");
         }
         System.out.println();
     }
@@ -26,8 +26,8 @@ public class MainQueryAll {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
         StudentDao dao = context.getBean(StudentDao.class);
 
-        List<Debtor> results = dao.queryAll();
-        printAll(results);
+        List<Debtor> results = dao.queryDebtors();
+        print(results);
 
         dao.killConnection();
     }
