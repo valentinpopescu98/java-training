@@ -72,9 +72,9 @@ public class StudentDao {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
 
         String sql = getQueryStudent();
-        SqlParameterSource param = new MapSqlParameterSource("grade", "5");
+        SqlParameterSource params = new MapSqlParameterSource("grade", "5");
 
-        List<Debtor> results = template.query(sql, param, new RowMapper<Debtor>() {
+        List<Debtor> results = template.query(sql, params, new RowMapper<Debtor>() {
             @Override
             public Debtor mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Debtor debtor = new Debtor();

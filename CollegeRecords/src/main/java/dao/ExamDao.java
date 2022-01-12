@@ -2,6 +2,7 @@ package dao;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import model.Exam;
+import model.ExamStatistics;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -22,6 +23,7 @@ public class ExamDao {
     private String deleteExam;
     private String updateExam;
     private String queryExam;
+    private String queryExamStatistics;
 
     public void killConnection() {
         try {
@@ -95,6 +97,30 @@ public class ExamDao {
         return result;
     }
 
+    public ExamStatistics queryExamStatistics(int examId) {
+        NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(dataSource);
+
+        String sql = getQueryExamStatistics();
+        Map<String, String> params = new HashMap<>();
+        params.put("examId", valueOf(examId));
+        params.put("grade", "4");
+
+        ExamStatistics result = template.queryForObject(sql, params, new RowMapper<ExamStatistics>() {
+            @Override
+            public ExamStatistics mapRow(ResultSet rs, int rowNum) throws SQLException {
+                ExamStatistics statistics = new ExamStatistics();
+                statistics.setExam(queryExam(examId));
+                statistics.setStudentsAttending(rs.getInt("students_attending"));
+                statistics.setStudentsPromoted(rs.getInt("students_promoted"));
+                statistics.setAverageGrade(rs.getFloat("grade_average"));
+
+                return statistics;
+            }
+        });
+
+        return result;
+    }
+
     public void setDataSource(MysqlDataSource dataSource) {
         this.dataSource = dataSource;
     }
@@ -129,5 +155,13 @@ public class ExamDao {
 
     public void setQueryExam(String queryExam) {
         this.queryExam = queryExam;
+    }
+
+    public String getQueryExamStatistics() {
+        return queryExamStatistics;
+    }
+
+    public void setQueryExamStatistics(String queryExamStatistics) {
+        this.queryExamStatistics = queryExamStatistics;
     }
 }

@@ -36,7 +36,7 @@ public class Exam {
         return professorName;
     }
 
-    public void setProfessorName(String professor_name) {
+    public void setProfessorName(String professorName) {
         this.professorName = professorName;
     }
 
