@@ -1,18 +1,9 @@
 package model;
 
 public class ExamStatistics {
-    Exam exam;
     int studentsAttending;
     int studentsPromoted;
     float averageGrade;
-
-    public Exam getExam() {
-        return exam;
-    }
-
-    public void setExam(Exam exam) {
-        this.exam = exam;
-    }
 
     public int getStudentsAttending() {
         return studentsAttending;

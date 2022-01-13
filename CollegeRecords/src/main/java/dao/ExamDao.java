@@ -2,6 +2,7 @@ package dao;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import model.Exam;
+import model.ExamInfo;
 import model.ExamStatistics;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -109,7 +110,6 @@ public class ExamDao {
             @Override
             public ExamStatistics mapRow(ResultSet rs, int rowNum) throws SQLException {
                 ExamStatistics statistics = new ExamStatistics();
-                statistics.setExam(queryExam(examId));
                 statistics.setStudentsAttending(rs.getInt("students_attending"));
                 statistics.setStudentsPromoted(rs.getInt("students_promoted"));
                 statistics.setAverageGrade(rs.getFloat("grade_average"));
@@ -120,6 +120,13 @@ public class ExamDao {
 
         return result;
     }
+
+//    public ExamInfo queryExamInfo(int examId) {
+//        ExamInfo examInfo = new ExamInfo();
+//        examInfo.setExam(queryExam(examId));
+//        examInfo.setExamStatistics(queryExamStatistics(examId));
+//        return examInfo;
+//    }
 
     public void setDataSource(MysqlDataSource dataSource) {
         this.dataSource = dataSource;

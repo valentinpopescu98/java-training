@@ -9,7 +9,7 @@
         <property name="password" value="123456" />
     </bean>
 
-    <bean class="dao.StudentDao">
+    <bean class="dao.StudentDao" id="studentDao">
         <property name="dataSource" ref="mySqlDS" />
 
         <property name="insertStudent" value="INSERT INTO student (name, study_group, study_year)
@@ -31,7 +31,7 @@
         </property>
     </bean>
 
-    <bean class="dao.ExamDao">
+    <bean class="dao.ExamDao" id="examDao">
         <property name="dataSource" ref="mySqlDS" />
 
         <property name="insertExam" value="INSERT INTO exam (study_group, subject, professor_name, date, classroom)
@@ -54,5 +54,9 @@
                 ]]>
             </value>
         </property>
+    </bean>
+
+    <bean class="services.ExamService">
+        <property name="dao" ref="examDao" />
     </bean>
 </beans>
