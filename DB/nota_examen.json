@@ -1,8 +1,0 @@
-[{"examen_id":1, "student_id":1, "nota":10},
- {"examen_id":2, "student_id":2, "nota":9},
- {"examen_id":3, "student_id":3, "nota":4},
- {"examen_id":4, "student_id":4, "nota":4},
- {"examen_id":5, "student_id":1, "nota":5},
- {"examen_id":6, "student_id":2, "nota":6},
- {"examen_id":7, "student_id":3, "nota":4},
- {"examen_id":8, "student_id":4, "nota":0}]
