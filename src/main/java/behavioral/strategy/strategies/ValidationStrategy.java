@@ -1,6 +1,6 @@
-package behavioral.strategy.ex1.strategies;
+package behavioral.strategy.strategies;
 
-import behavioral.strategy.ex1.domain.CreditCard;
+import behavioral.strategy.domain.CreditCard;
 
 public abstract class ValidationStrategy {
     public abstract boolean isValid(CreditCard creditCard);

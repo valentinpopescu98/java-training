@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class InputStreamExample {
     public static void main(String[] args) throws IOException {
-        File file = new File("./src/main/resources/output.txt");
+        File file = new File("./src/main/java/structural/decorator/ex1/output.txt");
         file.createNewFile();
 
         FileOutputStream fileOutputStream = new FileOutputStream(file);

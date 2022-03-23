@@ -1,6 +1,6 @@
-package behavioral.strategy.ex1.domain;
+package behavioral.strategy.domain;
 
-import behavioral.strategy.ex1.strategies.ValidationStrategy;
+import behavioral.strategy.strategies.ValidationStrategy;
 
 public class CreditCard {
     private String cardNumber;

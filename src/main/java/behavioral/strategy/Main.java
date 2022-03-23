@@ -1,8 +1,8 @@
-package behavioral.strategy.ex1;
+package behavioral.strategy;
 
-import behavioral.strategy.ex1.domain.CreditCard;
-import behavioral.strategy.ex1.strategies.MastercardStrategy;
-import behavioral.strategy.ex1.strategies.VisaStrategy;
+import behavioral.strategy.domain.CreditCard;
+import behavioral.strategy.strategies.MastercardStrategy;
+import behavioral.strategy.strategies.VisaStrategy;
 
 public class Main {
     public static void main(String[] args) {
