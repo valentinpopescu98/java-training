@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.mysql.cj.jdbc.MysqlDataSource" id="mySqlDS">
+        <property name="url" value="jdbc:mysql://localhost:3306/vali_schema" />
+        <property name="user" value="vali" />
+        <property name="password" value="123456" />
+    </bean>
+
+    <bean class="dao.StudentDao" id="studentDao">
+        <property name="dataSource" ref="mySqlDS" />
+
+        <property name="insertStudent" value="INSERT INTO student (name, study_group, study_year)
+                    VALUES (:name, :studyGroup, :studyYear)" />
+        <property name="deleteStudent" value="DELETE FROM student WHERE student_id = :studentId" />
+        <property name="updateStudent" value="UPDATE student SET name = :name, study_group = :studyGroup,
+                    study_year = :studyYear WHERE `student_id` = :studentId" />
+        <property name="queryStudent">
+            <value>
+                <![CDATA[
+                    SELECT s.student_id, s.name, s.study_group group_student, e.exam_id, e.subject,
+                    e.date, e.study_group group_exam, g.grade
+                    FROM student s
+                    INNER JOIN exam_grade n ON s.student_id = g.student_id
+                    INNER JOIN exam e ON g.exam_id = e.exam_id
+                    WHERE g.grade < :grade OR g.grade IS NULL
+                ]]>
+            </value>
+        </property>
+    </bean>
+
+    <bean class="dao.ExamDao" id="examDao">
+        <property name="dataSource" ref="mySqlDS" />
+
+        <property name="insertExam" value="INSERT INTO exam (study_group, subject, professor_name, date, classroom)
+                    VALUES (:studyGroup, :subject, :professorName, :date, :classroom)" />
+        <property name="deleteExam" value="DELETE FROM exam WHERE exam_id = :examId" />
+        <property name="updateExam" value="UPDATE exam SET study_group = :studyGroup, subject = :subject,
+                    professor_name = :professorName, date = :date, classroom = :classroom
+                    WHERE exam_id = :examId" />
+        <property name="queryExam" value="SELECT * FROM exam WHERE exam_id = :examId" />
+        <property name="queryExamStatistics">
+            <value>
+                <![CDATA[
+                    SELECT e.*,
+                    COUNT(CASE WHEN g.grade IS NOT NULL THEN g.student_id END) students_attending,
+                    COUNT(CASE WHEN g.grade > :grade AND g.grade IS NOT NULL THEN g.student_id END) students_promoted,
+                    AVG(CASE WHEN g.grade IS NOT NULL THEN g.grade END) grade_average
+                    FROM exam e
+                    INNER JOIN exam_grade g ON e.exam_id = g.exam_id
+                    WHERE e.exam_id = :examId
+                ]]>
+            </value>
+        </property>
+    </bean>
+
+    <bean class="services.ExamService">
+        <property name="dao" ref="examDao" />
+    </bean>
+</beans>

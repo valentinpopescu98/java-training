@@ -1,0 +1,8 @@
+[{"examen_id":1, "grupa":1, "materie":"Programarea Orientata pe Obiecte", "nume_profesor":"Ionita Dan", "data":"2022-02-01", "sala":308},
+ {"examen_id":2, "grupa":1, "materie":"Programarea Orientata pe Obiecte", "nume_profesor":"Ionita Dan", "data":"2022-02-01", "sala":306},
+ {"examen_id":3, "grupa":2, "materie":"Programarea Orientata pe Obiecte", "nume_profesor":"Ionita Dan", "data":"2022-02-01", "sala":308},
+ {"examen_id":4, "grupa":2, "materie":"Programarea Orientata pe Obiecte", "nume_profesor":"Ionita Dan", "data":"2022-02-01", "sala":306},
+ {"examen_id":5, "grupa":1, "materie":"Proiectare Logica", "nume_profesor":"Bostan Ilie", "data":"2022-02-06", "sala":207},
+ {"examen_id":6, "grupa":1, "materie":"Proiectare Logica", "nume_profesor":"Bostan Ilie", "data":"2022-02-06", "sala":208},
+ {"examen_id":7, "grupa":2, "materie":"Proiectare Logica", "nume_profesor":"Bostan Ilie", "data":"2022-02-06", "sala":207},
+ {"examen_id":8, "grupa":2, "materie":"Proiectare Logica", "nume_profesor":"Bostan Ilie", "data":"2022-02-06", "sala":208}]
