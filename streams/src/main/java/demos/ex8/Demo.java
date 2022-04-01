@@ -10,25 +10,17 @@ public class Demo {
     public static void main(String[] args) {
         List<IntegerWrapper> lst = makeList();
 
-        int sum1 = lst.stream()
-                .map(IntegerWrapper::getValue)
-                .reduce(0, (a, b) -> a + b);
+        boolean anyBiggerThanFive = lst.stream()
+                .anyMatch(x -> x.getValue() > 5);
 
-        int sum2 = lst.stream()
-                .map(IntegerWrapper::getValue)
-                .reduce(0, Integer::sum);
+        boolean allBiggerThanFive = lst.stream()
+                .allMatch(x -> x.getValue() > 5);
 
-        int sum3 = lst.stream()
-                .mapToInt(IntegerWrapper::getValue)
-                .sum();
+        boolean noneBiggerThanFive = lst.stream()
+                .noneMatch(x -> x.getValue() > 5);
 
-        int max = lst.stream()
-                .map(IntegerWrapper::getValue)
-                .reduce(0, Integer::max);
-
-        System.out.println(sum1);
-        System.out.println(sum2);
-        System.out.println(sum3);
-        System.out.println(max);
+        System.out.println(anyBiggerThanFive);
+        System.out.println(allBiggerThanFive);
+        System.out.println(noneBiggerThanFive);
     }
 }

@@ -1,15 +1,14 @@
 package demos.ex11;
 
-import java.util.Arrays;
-import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
 public class Demo {
     public static void main(String[] args) {
-        Stream<Integer> stream1 = Stream.of(1, 2, 3, 4, 5);
-        Stream<Integer> stream2 = Arrays.stream(new Integer[]{1, 2, 3, 4, 5});
+        IntStream.range(0, 5)
+                .forEach(x -> System.out.print(x + " "));
 
-        stream1.forEach(x -> System.out.print(x + " "));
         System.out.println();
-        stream2.forEach(x -> System.out.print(x + " "));
+        IntStream.rangeClosed(0, 5)
+                .forEach(x -> System.out.print(x + " "));
     }
 }

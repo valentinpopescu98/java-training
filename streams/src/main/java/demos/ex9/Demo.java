@@ -3,7 +3,6 @@ package demos.ex9;
 import demos.IntegerWrapper;
 
 import java.util.List;
-import java.util.Optional;
 
 import static demos.Utils.makeList;
 
@@ -11,35 +10,25 @@ public class Demo {
     public static void main(String[] args) {
         List<IntegerWrapper> lst = makeList();
 
-        Optional<Integer> first = lst.stream()
-                .map(x -> x.getValue())
-                .filter(x -> x < 15)
-                .findFirst();
+        int sum1 = lst.stream()
+                .map(IntegerWrapper::getValue)
+                .reduce(0, (a, b) -> a + b);
 
-        Optional<Integer> any = lst.stream()
-                .map(x -> x.getValue())
-                .filter(x -> x < 15)
-                .findAny();
+        int sum2 = lst.stream()
+                .map(IntegerWrapper::getValue)
+                .reduce(0, Integer::sum);
 
-        Optional<Integer> firstLowerThanFive = lst.stream()
-                .map(x -> x.getValue())
-                .filter(x -> x < 5)
-                .findFirst();
+        int sum3 = lst.stream()
+                .mapToInt(IntegerWrapper::getValue)
+                .sum();
 
-        Optional<Integer> firstLowerThanZeroShowEmpty = lst.stream()
-                .map(x -> x.getValue())
-                .filter(x -> x < 0)
-                .findFirst();
+        int max = lst.stream()
+                .map(IntegerWrapper::getValue)
+                .reduce(0, Integer::max);
 
-        Optional<Integer> firstLowerThanZeroDontShowEmpty = lst.stream()
-                .map(x -> x.getValue())
-                .filter(x -> x < 0)
-                .findFirst();
-
-        System.out.println(first);
-        System.out.println(any);
-        System.out.println(firstLowerThanFive);
-        System.out.println(firstLowerThanZeroShowEmpty);
-        firstLowerThanZeroDontShowEmpty.ifPresent(System.out::println);
+        System.out.println(sum1);
+        System.out.println(sum2);
+        System.out.println(sum3);
+        System.out.println(max);
     }
 }

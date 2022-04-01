@@ -1,19 +1,15 @@
 package demos.ex12;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Demo {
-    public static void main(String[] args) throws IOException {
-        Path path = Paths.get("src/main/java/demos/ex12/text.txt");
-        Charset charset = Charset.defaultCharset();
+    public static void main(String[] args) {
+        Stream<Integer> stream1 = Stream.of(1, 2, 3, 4, 5);
+        Stream<Integer> stream2 = Arrays.stream(new Integer[]{1, 2, 3, 4, 5});
 
-        long linesCount = Files.lines(path, charset)
-                        .count();
-
-        System.out.println(linesCount);
+        stream1.forEach(x -> System.out.print(x + " "));
+        System.out.println();
+        stream2.forEach(x -> System.out.print(x + " "));
     }
 }
