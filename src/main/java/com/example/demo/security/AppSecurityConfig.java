@@ -3,6 +3,7 @@ package com.example.demo.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -12,13 +13,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-import static com.example.demo.security.AppUserPermission.READ;
-import static com.example.demo.security.AppUserPermission.WRITE;
 import static com.example.demo.security.AppUserRole.*;
-import static org.springframework.http.HttpMethod.*;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     private final PasswordEncoder passwordEncoder;
 
@@ -32,11 +31,11 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
             .authorizeRequests()
             .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
-            .antMatchers(POST, "/api/v*/**").hasAuthority(WRITE.name())
-            .antMatchers(PUT, "/api/v*/**").hasAuthority(WRITE.name())
-            .antMatchers(DELETE, "/api/v*/**").hasAuthority(WRITE.name())
+//            .antMatchers(POST, "/api/v*/**").hasAuthority(WRITE.name())
+//            .antMatchers(PUT, "/api/v*/**").hasAuthority(WRITE.name())
+//            .antMatchers(DELETE, "/api/v*/**").hasAuthority(WRITE.name())
 //            .antMatchers(GET,"/api/v*/**").hasAnyRole(ADMIN.name(), SUPER_ADMIN.name())
-            .antMatchers(GET,"/api/v*/**").hasAuthority(READ.name())
+//            .antMatchers(GET,"/api/v*/**").hasAuthority(READ.name())
             .anyRequest()
             .authenticated().and().httpBasic();
     }
