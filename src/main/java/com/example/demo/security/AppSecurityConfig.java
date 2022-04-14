@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import static com.example.demo.security.AppUserRole.*;
 
@@ -28,16 +29,12 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-            .authorizeRequests()
+        http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+            .and().authorizeRequests()
             .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
-//            .antMatchers(POST, "/api/v*/**").hasAuthority(WRITE.name())
-//            .antMatchers(PUT, "/api/v*/**").hasAuthority(WRITE.name())
-//            .antMatchers(DELETE, "/api/v*/**").hasAuthority(WRITE.name())
-//            .antMatchers(GET,"/api/v*/**").hasAnyRole(ADMIN.name(), SUPER_ADMIN.name())
-//            .antMatchers(GET,"/api/v*/**").hasAuthority(READ.name())
             .anyRequest()
-            .authenticated().and().httpBasic();
+            .authenticated()
+            .and().httpBasic();
     }
 
     @Override
@@ -46,21 +43,18 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
         UserDetails user = User.builder()
                                .username("user")
                                .password(passwordEncoder.encode("123456"))
-//                               .roles(USER.name())
                                .authorities(USER.getGrantedAuthorities())
                                .build();
 
         UserDetails admin = User.builder()
                                 .username("admin")
                                 .password(passwordEncoder.encode("123456"))
-//                                .roles(ADMIN.name())
                                 .authorities(ADMIN.getGrantedAuthorities())
                                 .build();
 
         UserDetails superAdmin = User.builder()
                                      .username("superadmin")
                                      .password(passwordEncoder.encode("123456"))
-//                                     .roles(SUPER_ADMIN.name())
                                      .authorities(SUPER_ADMIN.getGrantedAuthorities())
                                      .build();
 
