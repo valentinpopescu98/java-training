@@ -12,7 +12,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import java.util.concurrent.TimeUnit;
 
 import static com.example.demo.security.AppUserRole.*;
 
@@ -29,12 +31,34 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-            .and().authorizeRequests()
-            .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
-            .anyRequest()
-            .authenticated()
-            .and().httpBasic();
+        http
+            .csrf()
+                .disable()
+            .authorizeRequests()
+                .antMatchers("/", "/index", "/css/*", "/js/*")
+                    .permitAll()
+                .anyRequest()
+                    .authenticated()
+            .and()
+                .formLogin()
+                    .loginPage("/login")
+                        .permitAll()
+                        .defaultSuccessUrl("/cool-stuff", true)
+                        .usernameParameter("username")
+                        .passwordParameter("password")
+            .and()
+                .rememberMe()
+                    .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(14))
+                    .key("secret")
+                    .rememberMeParameter("remember-me")
+            .and()
+                .logout()
+//                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST")) // only for CSRF enabled
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/")
+                    .clearAuthentication(true)
+                    .invalidateHttpSession(true)
+                    .deleteCookies("JSESSIONID");
     }
 
     @Override
