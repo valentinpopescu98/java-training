@@ -1,6 +1,7 @@
 package com.example.demo.security;
 
 import com.example.demo.auth.AppUserService;
+import com.example.demo.jwt.JwtUsernamePasswordAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,9 +11,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.util.concurrent.TimeUnit;
 
 @Configuration
 @EnableWebSecurity
@@ -29,33 +29,17 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-            .csrf()
+        http.csrf()
                 .disable()
+            .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+            .addFilter(new JwtUsernamePasswordAuthenticationFilter(authenticationManager()))
             .authorizeRequests()
-                .antMatchers("/", "/index", "/css/*", "/js/*")
-                    .permitAll()
-                .anyRequest()
-                    .authenticated()
-            .and()
-            .formLogin()
-                .loginPage("/login")
-                    .permitAll()
-                    .defaultSuccessUrl("/cool-stuff", true)
-                    .usernameParameter("username")
-                    .passwordParameter("password")
-            .and()
-            .rememberMe()
-                .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(14))
-                .key("secret")
-                .rememberMeParameter("remember-me")
-            .and()
-            .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .clearAuthentication(true)
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID", "remember-me", "XSRF-TOKEN");
+            .antMatchers("/", "/index", "/css/*", "/js/*")
+                .permitAll()
+            .anyRequest()
+                .authenticated();
     }
 
     @Override
