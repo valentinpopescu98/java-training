@@ -1,14 +1,12 @@
 package com.valentinpopescu98.webapp.student;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class Student {
     @Id
@@ -16,8 +14,4 @@ public class Student {
     @GeneratedValue(generator = "student_sequence", strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
-    public Student(String name) {
-        this.name = name;
-    }
 }
