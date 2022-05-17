@@ -17,8 +17,7 @@ public class Student {
     private Long id;
     private String name;
 
-    public Student(Long id, String name) {
-        this.id = id;
+    public Student(String name) {
         this.name = name;
     }
 }

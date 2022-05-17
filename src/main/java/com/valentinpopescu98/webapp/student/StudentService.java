@@ -17,7 +17,7 @@ public class StudentService {
 
         if (studentNotFound) {
             throw new IllegalStateException(
-                    String.format("Student with %d ID not found.", studentId));
+                    String.format("Student with ID %d not found.", studentId));
         }
 
         Student student = foundStudent.get();
@@ -51,7 +51,7 @@ public class StudentService {
 
         if (studentNotFound) {
             throw new IllegalStateException(
-                    String.format("Student with %d ID not found.", studentId));
+                    String.format("Student with ID %d not found.", studentId));
         }
 
         Student student = foundStudent.get();
