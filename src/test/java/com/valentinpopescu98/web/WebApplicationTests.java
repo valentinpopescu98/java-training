@@ -1,10 +1,10 @@
-package com.valentinpopescu98.webapp;
+package com.valentinpopescu98.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WebappApplicationTests {
+class WebApplicationTests {
 
 	@Test
 	void contextLoads() {
