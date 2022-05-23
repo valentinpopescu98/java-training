@@ -1,4 +1,4 @@
-package com.valentinpopescu98.web.student;
+package com.valentinpopescu98.testing.student;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -13,7 +13,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     Optional<Student> findByName(String name);
 
     @Transactional
-    @Modifying
+    @Modifying(clearAutomatically = true)
     @Query("UPDATE Student s SET s.name=?2 WHERE s.id=?1")
     void updateById(Long id, String newName);
 }

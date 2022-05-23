@@ -1,4 +1,4 @@
-package com.valentinpopescu98.web.student;
+package com.valentinpopescu98.testing.student;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.valentinpopescu98.web;
+package com.valentinpopescu98.testing;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
